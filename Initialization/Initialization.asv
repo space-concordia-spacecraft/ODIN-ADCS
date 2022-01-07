@@ -1,12 +1,7 @@
 %% Mission Parameters
 
-
-
 %% Spacecraft mass properties
 
-%Mass
-
-%Inertia
 
 %% Components orientation with respect to spacecraft
 
@@ -14,12 +9,11 @@
 
 % Magnetometer
 
-% Reaction Wheels
 
-% Magnetorquers
-
-%% Reaction Wheels characteristics
+%% Reaction Wheels Parameters
 
 % Wheel Inertia
 
 Jw = 2.11e-6;
+
+% Wheel frame wrt body frame
