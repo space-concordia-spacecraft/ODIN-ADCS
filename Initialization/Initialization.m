@@ -1,5 +1,13 @@
 %% Mission Parameters
 
+%Mission date
+Yr = 2000;
+Month = 01;
+Day = 01;
+Hr = 12;
+Min = 00;
+Sec = 00;
+JD = jday(Yr,Month,Day,Hr,Min,Sec);
 
 
 %% Spacecraft mass properties
