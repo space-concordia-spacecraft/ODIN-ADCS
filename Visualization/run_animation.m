@@ -13,13 +13,13 @@ for i=1:n
     
 end
 % define the reproduction speed factor
-speedx = 1; 
+speedx = 5; 
 % Do you want to save the animation in a mp4 file? (0.No, 1.Yes)
 isave_movie = 0;
 % Movie file name
 movie_file_name = '';
 
-sampletime = 0.1;
+sampletime = 0.05;
 tf = (n-1)*sampletime;
 tout = 0:sampletime:tf;
 tout = tout';
