@@ -1,7 +1,5 @@
 %% Mission Parameters
 
-<<<<<<< Updated upstream
-=======
 %Mission epoch
 Yr = 2000;
 Month = 01;
@@ -10,7 +8,6 @@ Hr = 12;
 Min = 00;
 Sec = 00;
 JD = jday(Yr,Month,Day,Hr,Min,Sec);
->>>>>>> Stashed changes
 
 %Initial TLE
 
