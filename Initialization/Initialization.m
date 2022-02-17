@@ -30,10 +30,14 @@ J =[0.04582275 0 0;
 
 % Magnetorquers
 
-%% Reaction Wheels characteristics
+%% Actuators
+
+% Reaction Wheels characteristics
 
 Jw = 2.029e-6; % Wheel Inertia
 
 f = 4.55e-6;% Viscous Damping
 
-%
+% Magnetorquer
+
+m_max = 0.24; % Am2
