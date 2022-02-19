@@ -1,12 +1,12 @@
 %% Mission Parameters
 
 %Mission epoch
-Yr = 2000;
-Month = 01;
-Day = 01;
-Hr = 12;
-Min = 00;
-Sec = 00;
+Yr = 2009;
+Month = 04;
+Day = 02;
+Hr = 11;
+Min = 07;
+Sec = 18;
 JD = jday(Yr,Month,Day,Hr,Min,Sec);
 
 %Initial TLE
