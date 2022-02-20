@@ -17,8 +17,8 @@
     % these are set in sgp4init
     % global tumin mu radiusearthkm xke j2 j3 j4 j3oj2
 
-    directory = 'C:\Users\mario\Desktop\Spacecraft\Spacecraft ADCS\Vallado';
-    fprintf(1,'output directory set to: %s, change in testmat.m if needed \n', directory);
+     directory = 'C:\Users\mario\Desktop\Spacecraft\ODIN-ADCS';
+%     fprintf(1,'output directory set to: %s, change in testmat.m if needed \n', directory);
 
     % global opsmode
 
@@ -37,8 +37,8 @@
     if (typerun == 'm')
         typeinput = input('input mfe, epoch (YMDHMS), or dayofyr approach, m,e,d: ','s');
     else
-        typeinput = 'e';
-    end;
+        typeinput = '';
+    end
 
     % whichconst = input('input constants 721, (72), 84 ');
     % this is the standard method of operation

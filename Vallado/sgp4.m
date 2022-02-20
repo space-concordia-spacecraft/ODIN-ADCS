@@ -96,7 +96,7 @@
 %     vallado, crawford, hujsak, kelso  2006
 %  ----------------------------------------------------------------------------*/
 
-function [satrec, r, v] = sgp4(satrec, tsince);
+function [satrec, r, v] = sgp4(satrec, tsince)
 
    % /* ------------------ set mathematical constants --------------- */
    twopi = 2.0 * pi;
