@@ -84,7 +84,7 @@
 %  ----------------------------------------------------------------------------*/
 
 function [satrec] = sgp4init(whichconst, opsmode, satrec, epoch, xbstar, xndot, xnddot, ...
-         xecco, xargpo, xinclo, xmo, xno_kozai, xnodeo);
+         xecco, xargpo, xinclo, xmo, xno_kozai, xnodeo)
     
    % /* ------------------------ initialization --------------------- */
    % /* ----------- set all near earth variables to zero ------------ */
