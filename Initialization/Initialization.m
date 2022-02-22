@@ -28,7 +28,7 @@ A = satrec.jdsatepoch
 
 [satrec,r,v] = sgp4(satrec,14400);
 
-
+load nut80.dat;
 
 
 %% Spacecraft mass properties
