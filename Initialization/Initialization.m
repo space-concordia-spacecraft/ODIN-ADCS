@@ -24,7 +24,7 @@ namibia = [5659.26;1238.85;-2659.2]; %ITRF [X;Y;Z;]
 
 [satrec] = twoline2rv(longstr1, longstr2, opsmode, whichconst);
 
-A = satrec.jdsatepoch
+A = satrec.jdsatepoch;
 
 [satrec,r,v] = sgp4(satrec,14400);
 
