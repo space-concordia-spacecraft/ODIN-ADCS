@@ -10,8 +10,7 @@ Hr = 5;
 Min = 6;
 Sec = 35;
 
-JD_0 = jday(Yr,M,D,Hr,Min,Sec); % Initial julian date for sim
-
+JD_0 = jday();
 %Stop date
 
 Yr_f = 2022;
@@ -41,7 +40,7 @@ namibia = [5659.26;1238.85;-2659.2]; %ITRF [X;Y;Z;]
 %Initialize SGP4
 
 deltamin = 4;
-[r_ecef,v_ecef] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
+[r,v] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
 
 load nut80.dat;
 
