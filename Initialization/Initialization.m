@@ -21,8 +21,8 @@ Hr_f = 6;
 Min_f = 40;
 Sec_f = 35;
 
-startprop = [Yr M D Hr Min Sec]; 
-stopprop = [Yr_f M_f D_f Hr_f Min_f Sec_f];
+startprop = [Yr M D Hr Min Sec]; % Array  with the start date for the orbit propagator
+stopprop = [Yr_f M_f D_f Hr_f Min_f Sec_f]; % Array  with the end date for the orbit propagator
 
 %Initial TLE
 % longstr1 = '1 44332U 98067QH  19350.77721468  .00006274  00000-0  10054-3 0  9998';
@@ -38,14 +38,16 @@ ground = [1266.06;-4295.81;4526.14]; %ITRF [X;Y;Z] %concordia
 argentina = [1612.36;-4182.16;-4522.83]; %ITRF [X;Y;Z]
 namibia = [5659.26;1238.85;-2659.2]; %ITRF [X;Y;Z;]
 
-%Initialize SGP4
+%% Orbit propagator
 
-deltamin = 4;
-[r_ecef,v_ecef] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
+deltamin = 1; %Sample time for SGP4 orbit propagator in minutes
+
+% SGP4 orbit propagator 
+[r_ecef,v_ecef,tsince] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
 
 load nut80.dat;
 
-plot3(r(:,1),r(:,2),r(:,3))
+plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
 %% Spacecraft mass properties
 
 %Mass
@@ -76,3 +78,27 @@ f = 4.55e-6;% Viscous Damping
 % Magnetorquer
 
 m_max = 0.24; % Am2
+
+%% Disturbances
+%Atmospheric Drag
+
+A = 0.2*0.3; %m^2
+Cd = 2.0; %dimensionless
+L = [0.0000812 -0.0022136 -0.0225868]; %m
+V_Vec = [7600 1 0]; %m/s / Not the real reference frame
+
+%Gravity Gradient
+
+Ra = 6721000;
+G = 6.67408e-11; %Gravitational Constant (m^3*kg^-1*s^-2)
+M = 5.9722e24;  %Mass of Earth (kg)
+
+%Solar Radiation Pressure
+
+As = 0.2*0.3 ; %Sunlit Area
+c = 2.99792458e8; %Speed of Light (m/s)
+q = 0.6; %Unitless Reflectance Factor (Varies from 0 to 1)
+Ks = 1367; %Solar Constant (W/m^2)
+Ls =0.01*[-3; 3; 5]; %Vector from center of mass to center of pressure
+
+D=0.01*[1;1;1];%overall residual dipole

@@ -10,7 +10,8 @@ Hr = 5;
 Min = 6;
 Sec = 35;
 
-JD_0 = jday();
+JD_0 = jday(Yr,M,D,Hr,Min,Sec); % Initial julian date for sim
+
 %Stop date
 
 Yr_f = 2022;
@@ -37,14 +38,15 @@ ground = [1266.06;-4295.81;4526.14]; %ITRF [X;Y;Z] %concordia
 argentina = [1612.36;-4182.16;-4522.83]; %ITRF [X;Y;Z]
 namibia = [5659.26;1238.85;-2659.2]; %ITRF [X;Y;Z;]
 
-%Initialize SGP4
+%Orbit propagator
 
-deltamin = 4;
-[r,v] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
+deltamin = 4; %Sample time for SGP4 orbit propagator in m
+%
+[r_ecef,v_ecef,tsince] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
 
 load nut80.dat;
 
-plot3(r(:,1),r(:,2),r(:,3))
+plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
 %% Spacecraft mass properties
 
 %Mass

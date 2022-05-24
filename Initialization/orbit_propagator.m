@@ -1,4 +1,4 @@
-function [recef,vecef] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin)
+function [recef,vecef,t] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin)
 
 opsmode = 'i';
 whichconst = 84;
