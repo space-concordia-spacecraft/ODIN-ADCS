@@ -1,0 +1,19 @@
+In MATLab open FCS.slx
+
+Modeling -> Model Settings
+
+In Code Generation -> 
+System target file: ert.tlc
+Lang. : C++
+ToolChain: MinGW64
+
+In Report ->
+Create code generation report: ON
+Open report automatically: ON
+
+In Interface ->
+Advanced parameters
+MAT-file logging: OFF
+
+
+ctrl + b to generate 
