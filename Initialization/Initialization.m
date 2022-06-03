@@ -5,10 +5,10 @@
 %Start Date
 Yr = 2022;
 M = 05;
-D = 22;
-Hr = 5;
-Min = 6;
-Sec = 35;
+D = 21;
+Hr = 22;
+Min = 0;
+Sec = 0;
 
 JD_0 = jday(Yr,M,D,Hr,Min,Sec); % Initial julian date for sim
 
@@ -17,9 +17,9 @@ JD_0 = jday(Yr,M,D,Hr,Min,Sec); % Initial julian date for sim
 Yr_f = 2022;
 M_f = 05;
 D_f = 22;
-Hr_f = 6;
-Min_f = 40;
-Sec_f = 35;
+Hr_f = 0;
+Min_f = 0;
+Sec_f = 0;
 
 startprop = [Yr M D Hr Min Sec]; % Array  with the start date for the orbit propagator
 stopprop = [Yr_f M_f D_f Hr_f Min_f Sec_f]; % Array  with the end date for the orbit propagator
@@ -45,6 +45,7 @@ deltamin = 1; %Sample time for SGP4 orbit propagator in minutes
 % SGP4 orbit propagator 
 [r_ecef,v_ecef,tsince] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
 
+orbit_param = [tsince r_ecef v_ecef];
 load nut80.dat;
 
 plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
