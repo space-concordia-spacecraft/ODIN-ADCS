@@ -69,7 +69,8 @@ function [Bx, By, Bz] = igrf(time, latitude, longitude, altitude, coord)
 %   only geodetic coordinates have been verified.
 % 
 % Outputs:
-%   -BX: Northward component of the magnetic field in nanoteslas (nT).
+%   -BX: Northward component of the magnetic field in nanoteslas
+%   (nT).geodetic
 %   -BY: Eastward component of the magnetic field in nT.
 %   -BZ: Downward component of the magnetic field in nT.
 %   -B: [BX(:), BY(:), BZ(:)].

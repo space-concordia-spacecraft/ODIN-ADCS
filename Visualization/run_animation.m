@@ -13,7 +13,7 @@ for i=1:n
     
 end
 % define the reproduction speed factor
-speedx = 1000; 
+speedx = 10; 
 % Do you want to save the animation in a mp4 file? (0.No, 1.Yes)
 isave_movie = 0;
 % Movie file name

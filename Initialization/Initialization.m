@@ -49,7 +49,6 @@ deltamin = 1; %Sample time for SGP4 orbit propagator in minutes
 t_orbit = tsince - tsince(1,1);
 
 orbit_param = [tsince r_ecef v_ecef];
-r_ecefx = r_ecef(:,1);
 
 load nut80.dat;
 
