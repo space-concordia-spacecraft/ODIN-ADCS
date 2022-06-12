@@ -66,7 +66,15 @@ J =[0.04582275 0 0;
 
 % Sun sensor
 
+Tsun_bs = [1 0 0;
+            0 1 0;
+            0 0 1];
+
 % Magnetometer
+
+Tmag_bs = [1 0 0;
+            0 1 0;
+            0 0 1];
 
 % Reaction Wheels
 
@@ -76,7 +84,7 @@ J =[0.04582275 0 0;
 
 % Reaction Wheels characteristics
 
-Jw = 2.029e-6; % Wheel Inertia
+Jw = 2.0292e-06; % Wheel Inertia
 
 f = 4.55e-6;% Viscous Damping
 
