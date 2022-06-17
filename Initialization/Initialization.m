@@ -17,9 +17,9 @@ JD_0 = JD_0 + jd_frac;
 
 Yr_f = 2022;
 M_f = 05;
-D_f = 21;
+D_f = 22;
 Hr_f = 22;
-Min_f = 35;
+Min_f = 0;
 Sec_f = 0;
 
 startprop = [Yr M D Hr Min Sec]; % Array  with the start date for the orbit propagator
@@ -79,6 +79,12 @@ Tmag_bs = [1 0 0;
 % Reaction Wheels
 
 % Magnetorquers
+
+%Payload
+
+%Payload FOV
+
+payload_fov = 10; %FOV in deg
 
 %% Actuators
 
