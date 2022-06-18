@@ -89,6 +89,6 @@
     latgd= atan(a*(1.0 -t*t)/(2.0 *b*t));
     hellp= (temp-a*t)*cos( latgd) + (r(3)-b)*sin(latgd);
 
-    latgc = asin(r(3)/magr);   % all locations
+    latgc = asin(r(3)/norm(r));   % all locations
     %latgc = gd2gc(latgd);  % surface of the Earth locations
 
