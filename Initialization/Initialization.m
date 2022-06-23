@@ -54,8 +54,7 @@ load nut80.dat;
 
 plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
 
-LLA = zeros(length(r_ecef),3);
-[~,LLA(:,1),LLA(:,2),LLA(:,3)] = ecef2llb(r_ecef(1));
+
 %% Spacecraft mass properties
 
 %Mass
