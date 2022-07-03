@@ -6,9 +6,9 @@ n=length(euler);
 yout=zeros(n,10);
 
 for i=1:n
-    yout(i,7)= euler(i,1);
+    yout(i,7)= euler(i,3);
     yout(i,8)= euler(i,2);
-    yout(i,9)= euler(i,3);
+    yout(i,9)= euler(i,1);
 
     
 end

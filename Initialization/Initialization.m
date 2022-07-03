@@ -99,6 +99,8 @@ f = 4.55e-6;% Viscous Damping
 % Magnetorquer
 
 m_max = 0.24; % Am2
+mz_max = 0.13; %Am2
+dt = 0.01;
 
 %% Disturbances
 %Atmospheric Drag
