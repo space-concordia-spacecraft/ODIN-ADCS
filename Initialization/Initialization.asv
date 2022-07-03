@@ -18,9 +18,9 @@ JD_0 = JD_0 + jd_frac;
 Yr_f = 2022;
 M_f = 05;
 D_f = 25;
-Hr_f = 22;
-Min_f = 0;
-Sec_f = 0;
+Hr_f = 15;
+Min_f = 9;
+Sec_f = 27.142;
 
 startprop = [Yr M D Hr Min Sec]; % Array  with the start date for the orbit propagator
 stopprop = [Yr_f M_f D_f Hr_f Min_f Sec_f]; % Array  with the end date for the orbit propagator
@@ -54,7 +54,7 @@ load nut80.dat;
 
 plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
 
-LLA = ecef2
+
 %% Spacecraft mass properties
 
 %Mass

@@ -86,7 +86,7 @@ Tmag_bs = [1 0 0;
 
 %Payload FOV
 
-payload_fov = 10; %FOV in deg
+payload_fov = 11; %FOV in deg
 
 %% Actuators
 
