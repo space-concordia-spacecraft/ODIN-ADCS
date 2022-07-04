@@ -1,4 +1,4 @@
-function [recef,vecef,t] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin)
+function [recef,vecef,t,r_teme,v_teme] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin)
 
 opsmode = 'i';
 whichconst = 84;
@@ -23,6 +23,8 @@ N = floor((stopmfe - startmfe)/deltamin);
 recef = zeros(N,3);
 vecef = zeros(N,3);
 decef = zeros(N,3);
+r_teme = zeros(N,3);
+v_teme = zeros(N,3);
 t = zeros(N,1);
 
 i = 1;
@@ -37,7 +39,13 @@ while ((tsince < stopmfe) && (satrec.error == 0))
     end
 
     [satrec, rteme, vteme] = sgp4 (satrec,  tsince);
-
+    r_teme(i,1) = rteme(1);
+    r_teme(i,2) = rteme(2);
+    r_teme(i,3) = rteme(3);
+    v_teme(i,1) = vteme(1);
+    v_teme(i,2) = vteme(2);
+    v_teme(i,3) = vteme(3);
+    
     if (satrec.error == 0)
             jdutc = satrec.jdsatepoch;
             jdutcfrac = satrec.jdsatepochf + tsince/1440.0;
@@ -67,6 +75,7 @@ while ((tsince < stopmfe) && (satrec.error == 0))
             vecef(i,1) = v(1);
             vecef(i,2) = v(2);
             vecef(i,3) = v(3);
+
             
             decef(i) = norm(r);
             i = i + 1 ;

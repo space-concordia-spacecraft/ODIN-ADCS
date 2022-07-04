@@ -44,7 +44,7 @@ namibia = [5659.26;1238.85;-2659.2]; %ITRF [X;Y;Z;]
 deltamin = 1; %Sample time for SGP4 orbit propagator in minutes
 
 % SGP4 orbit propagator 
-[r_ecef,v_ecef,tsince] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
+[r_ecef,v_ecef,tsince,rteme,vteme] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
 
 t_orbit = tsince - tsince(1,1);
 
@@ -88,6 +88,19 @@ Tmag_bs = [1 0 0;
 
 payload_fov = 11; %FOV in deg
 
+%% Controller
+
+%controller coded inertia
+C_I = [0.045 0.0009 -0.00007;...
+       0.0009 0.045 -0.00003;...
+       -0.00007 -0.00003 0.009];
+   
+controller_sample_rate = 0.5; %seconds
+Clockerror0=0.1;
+Clockerror=Clockerror0;
+ClockerrorRamp=3.5e-1;
+   
+
 %% Actuators
 
 % Reaction Wheels characteristics
@@ -101,6 +114,8 @@ f = 4.55e-6;% Viscous Damping
 m_max = 0.24; % Am2
 mz_max = 0.13; %Am2
 dt = 0.01;
+mag_gain = 2.8; %Am2/A
+mag_gain_coil = 2.1; %Am2/A
 
 %% Disturbances
 %Atmospheric Drag

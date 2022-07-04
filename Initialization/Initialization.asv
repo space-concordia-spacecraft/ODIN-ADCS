@@ -18,9 +18,9 @@ JD_0 = JD_0 + jd_frac;
 Yr_f = 2022;
 M_f = 05;
 D_f = 25;
-Hr_f = 15;
-Min_f = 9;
-Sec_f = 27.142;
+Hr_f = 22;
+Min_f = 0;
+Sec_f = 0;
 
 startprop = [Yr M D Hr Min Sec]; % Array  with the start date for the orbit propagator
 stopprop = [Yr_f M_f D_f Hr_f Min_f Sec_f]; % Array  with the end date for the orbit propagator
@@ -44,7 +44,7 @@ namibia = [5659.26;1238.85;-2659.2]; %ITRF [X;Y;Z;]
 deltamin = 1; %Sample time for SGP4 orbit propagator in minutes
 
 % SGP4 orbit propagator 
-[r_ecef,v_ecef,tsince] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
+[r_ecef,v_ecef,tsince,rteme,vteme] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
 
 t_orbit = tsince - tsince(1,1);
 
@@ -86,7 +86,11 @@ Tmag_bs = [1 0 0;
 
 %Payload FOV
 
-payload_fov = 10; %FOV in deg
+payload_fov = 11; %FOV in deg
+
+%% Controller
+
+
 
 %% Actuators
 
@@ -99,6 +103,10 @@ f = 4.55e-6;% Viscous Damping
 % Magnetorquer
 
 m_max = 0.24; % Am2
+mz_max = 0.13; %Am2
+dt = 0.01;
+mag_gain = 2.8; %Am2/A
+mag_gain_coil = 2.1; %Am2/A
 
 %% Disturbances
 %Atmospheric Drag
