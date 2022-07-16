@@ -17,8 +17,8 @@ JD_0 = JD_0 + jd_frac;
 
 Yr_f = 2022;
 M_f = 05;
-D_f = 25;
-Hr_f = 22;
+D_f = 21;
+Hr_f = 2;
 Min_f = 0;
 Sec_f = 0;
 
