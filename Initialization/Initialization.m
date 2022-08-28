@@ -3,12 +3,19 @@
 %Mission epoch
 
 %Start Date
+% Yr = 2022;
+% M = 08;
+% D = 14;
+% Hr = 13;
+% Min = 11;
+% Sec = 48;
+
 Yr = 2022;
-M = 05;
-D = 21;
-Hr = 0;
-Min = 0;
-Sec = 0;
+M = 08;
+D = 14;
+Hr = 13;
+Min = 11;
+Sec = 48;
 
 [JD_0,jd_frac] = jday(Yr,M,D,Hr,Min,Sec); % Initial julian date for sim
 JD_0 = JD_0 + jd_frac;
@@ -16,9 +23,9 @@ JD_0 = JD_0 + jd_frac;
 %Stop date
 
 Yr_f = 2022;
-M_f = 05;
-D_f = 21;
-Hr_f = 2;
+M_f = 08;
+D_f = 15;
+Hr_f = 0;
 Min_f = 0;
 Sec_f = 0;
 
@@ -43,17 +50,24 @@ namibia = [5659.26;1238.85;-2659.2]; %ITRF [X;Y;Z;]
 
 deltamin = 1; %Sample time for SGP4 orbit propagator in minutes
 
-% SGP4 orbit propagator 
-[r_ecef,v_ecef,tsince,rteme,vteme] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
-
-t_orbit = tsince - tsince(1,1);
-
-orbit_param = [tsince r_ecef v_ecef];
+% % SGP4 orbit propagator 
+% [r_ecef,v_ecef,tsince,rteme,vteme] = orbit_propagator(longstr1,longstr2,startprop,stopprop,deltamin);
+% 
+% t_orbit = tsince - tsince(1,1);
+% 
+% orbit_param = [tsince r_ecef v_ecef];
 
 load nut80.dat;
+% 
+% plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
 
+% STK Values
+SGP4 = readmatrix('Satellite1_Fixed_Position_Velocity.txt');
+t_orbit = 0:1:length(SGP4)-1;
+t_orbit = t_orbit';
+r_ecef = SGP4(:,5:7);
+v_ecef = SGP4(:,8:10);
 plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
-
 
 %% Spacecraft mass properties
 
