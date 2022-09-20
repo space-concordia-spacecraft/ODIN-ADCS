@@ -154,3 +154,7 @@ Ks = 1367; %Solar Constant (W/m^2)
 Ls =0.01*[-3; 3; 5]; %Vector from center of mass to center of pressure
 
 D=0.01*[1;1;1];%overall residual dipole
+
+w_e = [0 -7.292115e-5 0;
+    7.292115e-5 0 0;
+    0 0 0];

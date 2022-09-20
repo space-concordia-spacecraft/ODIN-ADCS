@@ -58,21 +58,28 @@
 
 function [p,a,ecc,incl,raan,argp,nu,m,arglat,truelon,lonper ] = rv2coe (r,v);
 
+        re         = 6378.1363;         % km
+        flat       = 1.0/298.257223563;
+        omegaearth = 7.292115e-5;     % rad/s
+        mu         = 398600.4415;      % km3/s2
+        mum        = 3.986004415e14;   % m3/s2
         constmath;
         constastro;  % don't overwrite mu
         muin = mu; % this is the km version
+        
+        
 small=1e-12;
         % -------------------------  implementation   -----------------
-        magr = mag( r );
-        magv = mag( v );
+        magr = norm( r );
+        magv = norm( v );
         % ------------------  find h n and e vectors   ----------------
         [hbar] = cross( r,v );
-        magh = mag( hbar );
+        magh = norm( hbar );
         if ( magh >= 0.0 )
             nbar(1)= -hbar(2);
             nbar(2)=  hbar(1);
             nbar(3)=   0.0;
-            magn = mag( nbar );
+            magn = norm( nbar );
             c1 = magv*magv - muin /magr;
             rdotv= dot( r,v );
             for i= 1 : 3
