@@ -67,7 +67,7 @@ t_orbit = 0:1:length(SGP4)-1;
 t_orbit = t_orbit';
 r_ecef = SGP4(:,5:7);
 v_ecef = SGP4(:,8:10);
-plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
+%plot3(r_ecef(:,1),r_ecef(:,2),r_ecef(:,3))
 
 %% Spacecraft mass properties
 
